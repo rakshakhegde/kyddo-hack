@@ -8,7 +8,7 @@ def smartReply(msg, id):
 	if 'mumbai' in msg:
 		mkeyboard={'keyboard': [['weather', 'places to visit']]}
 		bot.sendMessage(id, 'Bahut Accha place. With great places to visit, you\'ll have a terrific experience. Wanna know more?', reply_markup=mkeyboard)
-	elif 'weather' in msg:
+	elif any(map(lambda x: x in msg, ['weather', 'climate'])):
 		bot.sendMessage(id, 'You might not be comfy-comfy with weather! It has highly humid and moderately hot climate. Not to sweat ji, you\'ll get thanda-thanda juice at every corner of the street', reply_markup=mkeyboard)
 	elif any(map(lambda x: x in msg, ['beautiful', 'places', 'visit'])):
 		with open('mumba2.jpg', 'rb') as f:  # some file on local disk
@@ -17,9 +17,9 @@ def smartReply(msg, id):
 		with open('mumba1.jpg', 'rb') as f:  # some file on local disk
 			response = bot.sendPhoto(id, f)
 			pprint(response)
-		bot.sendMessage(id, 'With places like Gateway of India, Girgaum beach, Babulnath temples and more, you\'ll have a Jolly Fun, I say', reply_markup=mkeyboard)
+		bot.sendMessage(id, 'With places like Gateway of India, Girgaum beach, Babulnath temples and more, you\'ll have Jolly Fun, I say', reply_markup=mkeyboard)
 	elif 'crime' in msg:
-		bot.sendMessage(id, 'Time to get serious. With moderate (55.43) level of crime, you can be moderately sure that you won\'t go broke or die... or get raped. Sorry, truth hurts :(')
+		bot.sendMessage(id, 'Time to get serious. With moderate (55.43) level of crime, you can be moderately sure that you won\'t get robbed or killed... or raped. Yeah, truth hurts. Also, name one city that is completely safe. #sadReality')
 	elif any(map(lambda x: x in msg, ['book', 'flight', 'ticket', 'tickets', 'plane'])):
 		mkeyboard={'keyboard': [['IndiGo 1h 30m from ₹ 4,428'],
 			['SpiceJet SpiceJet 1h 40m from ₹ 4,584'],
